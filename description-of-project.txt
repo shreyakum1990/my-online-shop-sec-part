@@ -1,0 +1,146 @@
+# my-online-shop
+
+MyOnlineShop Porject
+********************
+
+github repository command : 
+
+[…or create a new repository on the command line
+echo "# my-online-shop" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/shreyakum1990/new-online-shop.git
+git push -u origin master
+…or push an existing repository from the command line
+git remote add origin https://github.com/shreyakum1990/new-online-shop.git
+git push -u origin master
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.]
+*************************************next-line*********************************************
+
+Framework Overview of MyOnlineProject:-
+a) nodejs, mongoose, morgan for backend
+b) angular6 with frontend
+
+a) nodejs, mongoose, morgan for backend and established the mongodb connection :- steps give below
+1. First we create folder structure .So go to the github website and create a new project repository, the project repository name is my-online-shop.
+with description.
+2. After creating a project repository git clone the url of project repository on our system particular directory
+3. After git clone the project repository, now I am installing npm package.json which contains all the modules which I required in my project.
+	the command is : npm init
+4. Now I am installing some modules which is required in my project.
+	- express which is framework of nodejs and it is create rest api.
+	- morgan it is used to log our access, whatever the api, token, post, get methods etc are invoking this log file created in morgan.
+	- mongoose which directly communicate to mongodb.
+	the command is : npm install express morgan mongoose -- save
+5. now I am going to start our modules with visual studio code editor.
+6. So just open our particular folder in this editor
+	through command prompt and the command is : F:\my-session-at-home\my-online-shop>code .
+to open visual studio code editor.
+7. So we can see on package.json file whatever the dependencies will be inject.. It will be showing in this file.
+8. Now I am going to do two things:-
+	- first is to create app.js that will process our request in api.
+	- second I am going to create models like users, products,account, categories, reviews, order.
+9. So first I will create app.js file:- here I'll import express and then I'll initialized our server object. So nodejs has feasibilty that it can open each multiple port at a time.
+10. Now I am going to instantiate the router object because through router module only we can we have post,get,put,delete,req method. Because whenever you performing crud operation you need a api that is a post method which is save the record, get method which is fetch record, put method which is update record and delete method which is delete the recor.
+10. This is our responsibility to register in our application.. to register in our application Iam using here ][app.use] it is used to register anything in middleware.
+11. So, for testing purpose. This api I am going to invoke in frontend. for this project I am using angular6 application. So from angular6 I am going to hit the server. and server will hit the desired response.
+12. Now start the server through command prompt in my particular project folder
+	command is : node app.js
+	and the message will show (Server Starts), and my server is listening on the 3000 port number.
+13. Run the http://localhost:3000/api/test on browser the message will show {"message":"Hell World"}. So getting response in json format.
+14. First of all I have to create some models / schemas for the models.
+15. Now I am creating models for mongodb tables.
+16. So lets create a folder which name models. Inside models folder create user.model.js
+17. So first to import mongoose [here require keyword is used to import the javascript files maybe it is modules or your own javascript file which is used in the nodejs.] 
+18. here I am creating the schema for the user because this object of the particular model interact with the mongodb database.
+19. After declare all the fields. I want to export this user.model.js schema because why ? Because I have main server file i.e. app.js file. So the user.model.js file is use inside the app.js file.
+	like Iam going to create category.model.js, product.model.js, review.model.js and order.model.js.. This all schemas are use inside the app.js file.
+20. If I want to use the user.model.js into app.js, then First I need to export the module inside user.model.js then, I can use this model inside app.js.
+21. Now to create another model inside models folder. Like category, product as well.
+22. Now I am creating account.js file why? Now I am creating the "api".
+23. In side our main file i.e. app.js.. Here If we want handle the request or if we pass the handler into json format, we have to use "bodyParser".
+24. So here once we have registere the body-parser in our application and any request is coming from the client side can be convert into jso format.
+*********************************************************next-line*************************************************************
+
+a) mongodb connection established:-
+1. First I am going to import the mongoose inside app.js
+2. For checking the database connectivity go to start mongodb.exe and then mongo.exe.
+3. lets invoke some api, for that I am going to restart the server.
+4. For the test go to the postman and hit the "localhost:3000/api/account/users" and hit on the post method.
+	and see on the command prompt whatever we are inserting it is showing in request body.
+5. Now I am going to save this record, so for that I will create the object for this object I am importing the user model, because ulitmately user model will be able to communicate with the database.
+6. now start the server. 
+7. Suppose you are sending some record as a post method, it means to save it. when the request goes to the server, i invoke this post method. Now I have to find that the email is persist/present into the database or not.
+8. [account.js]Here what is the difference between find and findOne. find returns an array. findOne returna an object.
+9. Here the user of client machine, so whenever we invoking the post method with this url, so first it is check wheather the email is present or not
+10. Now lets start the server.
+11. After register, Now I am going to create the login. So for login follow the code.
+**************************************next-line******************************************************
+
+[Jsonwebtoke]
+1.[account.js file] tommorow continue 4_account video [3/11/2018].[for cache history[npm cache clean --force(error name : npm install error: unexpected end of json input while parsing near... nt-webpack-plugin":"0']]
+Jsonwebtoke is used for authentication. Here I am not going to store any information of user on server side. I am going to create token and sending the token to the client side / browser.
+2. Iam going to install npm jsonwebtoken.. 
+	command : npm install jsonwebtoken --save
+3. Now I am going to create crud program which clear all concept of jsonwebtoken.
+4. Now import json webtoken in account.js file.
+5. So, see here once I login I will call sign() inside the login part. here Iam going to pass the token if user login is valid.
+6. Once if I get the authentication then only I can changes, update, edit and delete those particular api.
+7. So here I am creating the middleware folder. Inside the middleware I am going to create checkjwt.js file.
+8. Here check.jwt.js file I am going to create a call back function.
+9. And here the token will be fetching from header. because if user invoke any api to the next time, he/she will pass the token through the request from the header. Here I am not following the session methodology, I am following here toke methedology.
+10. So once I have login server create the token. It send the token to my browser, Iam storing that token into localhost storage. In future if I am invoking any api, I need the token from the header.
+11. So first I will check wheather the token is generating after login or not.
+12. instantiate this file into account.js file
+*********************************************next-line**********************************************************
+
+
+[old-code-account.js - for solving the problem]
+
+[
+//now to create post method for user
+route.post('/users',(req,res)=>{ // here before the call back function req and res parameter given so the "req" whatever the client is sending it is coming in req and whatever I am display in the browser, the browser reference stored in the res.
+var user = new User(); // here I have create the instance of or object of User model.
+user.name = req.body.name;
+user.email = req.body.email;
+user.password = req.body.password;
+user.isSeller = req.body.isSeller;
+user.save();
+res.json({
+    success : true,
+    message : 'User registered successful'
+})
+// here Iam going to check the request is coming or not
+console.log('The are body is',req.body);
+//here whenever you are filling a form and submiting it. So, it will go the server or inside this particular method, and display the complete body.
+
+})
+]
+
+var express = require('express'); // import express
+var app = express(); // initialize the server object
+var bodyparser = require('body-parser');
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended : true}));
+var route = express.Router(); // instantiate the router object
+var mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost/myonline",()=>{
+    console.log('Database connected');
+})// here I am going to connect our localhost port. Once I have specified the url for database connection , then I need to specified call back function.
+
+
+// route.get('/test',( req,res)=>{
+//     res.json({
+//         message : "Hello world"
+//     })
+// })//so for testing purpose 
+
+//app.use('/api',route)// so here Iam using any type of url that is forward by slash/ api we have to invoke this particular route object
+
+var accountRouter = require('./account');
+app.use('/api/account',accountRouter);
+app.listen(3000,()=>{
+    console.log('Server Starts');
+})  // once I initaialize the server object I have to listen on patricular port or server is listen on particualr port
