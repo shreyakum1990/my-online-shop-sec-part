@@ -96,6 +96,10 @@ Jsonwebtoke is used for authentication. Here I am not going to store any informa
 12. instantiate this file into account.js file
 *********************************************next-line**********************************************************
 
+[category]
+1. Now I am going to start work on category model.
+2. First I am going to add the category.
+
 
 [old-code-account.js - for solving the problem]
 
@@ -144,3 +148,5 @@ app.use('/api/account',accountRouter);
 app.listen(3000,()=>{
     console.log('Server Starts');
 })  // once I initaialize the server object I have to listen on patricular port or server is listen on particualr port
+
+[We need cors package for cross origin force, to communicate between separate url.]
