@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var express = require('express');
-var User = require('./models/user-model')
+var User = require('./models/user.model')
 var route = express.Router();
 var jwt = require('jsonwebtoken');
 var checkJWT = require('./middleware/check.jwt');

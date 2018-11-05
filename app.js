@@ -14,14 +14,15 @@ mongoose.connect("mongodb://localhost/myonline", { useNewUrlParser: true }, () =
 //     })
 // })//so for testing purpose 
 
-var categoryRouter = require('./category')
+
 
 
 var accountRouter = require('./account');
+app.use('/api/account', accountRouter)
 
+var categoryRouter = require('./category');
+app.use('/api/admin',categoryRouter)
 
-app.use('/api/account', accountRouter);
-app.use('/api/admin',categoryRouter);
 app.listen(3000, () => {
     console.log('Server Starts');
 })  
