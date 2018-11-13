@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { MessageService } from '../services/message.service';
 import { RestService } from '../services/rest.service';
 import { Router } from '@angular/router';
+=======
+import { RestService } from '../services/rest.service';
+import { MessageService } from '../services/message.service';
+>>>>>>> e5fdd6e4662e674aff57d0175f2e42f6971ef79f
 
 @Component({
   selector: 'app-login',
@@ -9,12 +14,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+<<<<<<< HEAD
   private login: any = {};
   constructor(private router : Router,private data: MessageService, private rest: RestService) { }
+=======
+private login : any = {};
+  constructor(private data : MessageService, private rest : RestService) { }
+>>>>>>> e5fdd6e4662e674aff57d0175f2e42f6971ef79f
 
   ngOnInit() {
   }
 
+<<<<<<< HEAD
   async checkLogin() {
     if (this.validate()) {
       var data = await this.rest.post("http://localhost:3000/api/account/login", this.login);
@@ -45,3 +56,6 @@ export class LoginComponent implements OnInit {
   }
 
 }
+=======
+}
+>>>>>>> e5fdd6e4662e674aff57d0175f2e42f6971ef79f

@@ -44,6 +44,11 @@ app.use('/api/seller', productRouter)
 
 var reviewRouter = require('./review');
 app.use('/api/customer',reviewRouter)
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e5fdd6e4662e674aff57d0175f2e42f6971ef79f
 
 app.listen(3000, () => {
     console.log('Server Starts');
