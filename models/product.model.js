@@ -1,15 +1,28 @@
 var mongoose = require('mongoose');
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
-
-
-var productSchema = new mongoose.Schema({
-    category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+var ProductSchema = new mongoose.Schema({
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
+    },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    reviews: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review'
+    }],
     image: String,
-    email: String,
     title: String,
     description: String,
     price: Number,
-    created: {type: Date, default:Date.now}
+    created: {
+        type: Date,
+        default: Date.now
+    }
 })
-module.exports=mongoose.model('Product',productSchema);
+
+ProductSchema.plugin(deepPopulate);
+module.exports = mongoose.model('Product', ProductSchema);

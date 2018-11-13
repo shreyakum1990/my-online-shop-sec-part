@@ -59,7 +59,7 @@ route.post('/login', (req, res) => {
         else {
             res.json({
                 success: true,
-                message: "Invalid Login"
+                message: "Login incorrect"
             })
         }
     })
